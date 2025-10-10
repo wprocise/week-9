@@ -1,9 +1,12 @@
-import numpy as np
+import pandas as pd
 
 
-# update/add code below ...
-def ways(n):
-    if n == 12:
-        return 3
-    elif n == 20:
-        return 5
+def GroupEstimate(object):
+    def __init__(self, estimate):
+        self.estimate = estimate
+    
+    def fit(self, X, y):
+        return None
+
+    def predict(self, X):
+        return None
