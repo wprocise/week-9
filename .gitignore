@@ -25,6 +25,7 @@ cython_debug/
 # OS
 **.DS_Store
 *.idea
+*.vscode
 
 # project
 .env
