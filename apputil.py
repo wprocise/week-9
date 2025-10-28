@@ -11,5 +11,10 @@ class GroupEstimate(object):
     def __init__(self, estimate):
         if estimate not in ["mean", "median"]:
             raise ValueError("Estimate must be either 'mean' or 'median'")
+        self.estimate = estimate
+        self.group_data = {}
+
+# Part 2: 
+
 
 
