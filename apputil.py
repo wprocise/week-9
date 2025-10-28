@@ -16,5 +16,7 @@ class GroupEstimate(object):
 
 # Part 2: 
 
-
-
+def fit (self, X, y):
+    data = X.copy()
+    data['y'] = y
+    grouped = data.groupby(list(X.columns))['y']
