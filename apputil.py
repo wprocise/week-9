@@ -20,3 +20,8 @@ def fit (self, X, y):
     data = X.copy()
     data['y'] = y
     grouped = data.groupby(list(X.columns))['y']
+    if self.estimate == "mean":
+        self.group_data = grouped.mean().to_dict()
+    else:
+        self.group_data = grouped.median().to_dict()
+        
