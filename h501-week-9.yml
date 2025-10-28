@@ -1,6 +1,5 @@
 # h501-week-9 yml file
 
-```yml
 name: h501-week-9
 dependencies:
   - python=3.12
@@ -13,4 +12,3 @@ dependencies:
     - ipykernel
     - vaderSentiment
     - plotly
-```
