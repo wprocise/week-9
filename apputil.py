@@ -45,7 +45,7 @@ class GroupEstimate():
 
 # Part 3: Add a predict(X_) method that takes in an array of a DataFrame corresponding to columns in 'X_', and returns the corresponding estimates for 'y'. 
 
-# Example data
+#  DataFrame
 data = {
     "team": ["IND", "IND", "IND", "BUF", "BUF", "BUF"],
     "player_name": [
