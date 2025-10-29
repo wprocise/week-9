@@ -43,4 +43,34 @@ class GroupEstimate():
 
         return predictions
 
-# Part 3: 
+# Part 3: Add a predict(X_) method that takes in an array of a DataFrame corresponding to columns in 'X_', and returns the corresponding estimates for 'y'. 
+
+# Example data
+data = {
+    "team": ["IND", "IND", "IND", "BUF", "BUF", "BUF"],
+    "player_name": [
+        "Daniel Jones", "Jonathon Taylor", "Michael Pittman Jr",
+        "Josh Allen", "James Cook", "Keon Coleman"
+    ],
+    "position": ["QB", "RB", "WR", "QB", "RB", "WR"],
+    "age": [28, 26, 28, 29, 24, 23],
+}
+
+"""Create predict model and fit to data, then make predictions on new data."""
+players_df = pd.DataFrame(data)
+X = players_df[["team", "position"]]
+y = players_df["age"]
+
+model = GroupEstimate("mean")
+model.fit(X, y)
+
+X_ = [
+    ["IND", "QB"],
+    ["IND", "RB"],
+    ["IND", "WR"],
+    ["BUF", "QB"],
+    ["BUF", "RB"],
+    ["BUF", "WR"]
+]
+
+model.predict(X_)
