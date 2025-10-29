@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 ## Exercise 1
 """
@@ -8,7 +9,7 @@ predicts an estimate value based on the data provided.
 """
 # Part 1: Define a class 'GroupEstimate' that accepts an 'estimate' argument, which can be either "mean" or "median".
 
-class GroupEstimate(object):
+class GroupEstimate():
     def __init__(self, estimate):
         if estimate not in ["mean", "median"]:
             raise ValueError("Estimate must be either 'mean' or 'median'")
