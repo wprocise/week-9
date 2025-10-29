@@ -15,7 +15,6 @@ class GroupEstimate(object):
         self.estimate = estimate
         self.group_data = {}
 
-
 # Part 2: Add a .fit(X, y) method that takes in a pandas DataFrame of categorical data 'X', and a 1-D array, 'y'. 
     """
     Combine 'X' and 'y' into single pandas DataFrame.
@@ -31,4 +30,16 @@ class GroupEstimate(object):
         else:
             self.group_data = grouped.median().to_dict()
 
+    def predict(self, X_):
+        """Predict based on the learned group means/medians."""
+        X_ = pd.DataFrame(X_)
+        keys = [tuple(row) for row in X_.to_numpy()]
+        predictions = [self.group_data.get(k, np.nan) for k in keys]
 
+        missing_count = sum(pd.isna(predictions))
+        if missing_count > 0:
+            print(f"{missing_count} observation(s) belong to unseen group(s). Returning NaN for those.")
+
+        return predictions
+
+# Part 3: 
