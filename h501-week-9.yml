@@ -12,3 +12,7 @@ dependencies:
     - ipykernel
     - vaderSentiment
     - plotly
+    - streamlit
+    - scikit-learn
+    - joblib
+    - numpy

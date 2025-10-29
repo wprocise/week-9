@@ -1,21 +1,29 @@
+# app.py
 import streamlit as st
+import joblib
 
-from apputil import *
+# Load model
+@st.cache_resource
+def load_model():
+    return joblib.load("sentiment_model.pkl")
 
+model = load_model()
 
-st.write(
-'''
-# Week x: [Title]
+# Streamlit UI
+st.title("🏈 Simple Sentiment Analysis App")
+st.write("Enter a sentence below to analyze its sentiment:")
 
-...
-''')
+# Input box
+user_input = st.text_area("Your text:")
 
-# currently set for integer input
-amount = st.number_input("Exercise Input: ", 
-                         value=None, 
-                         step=1, 
-                         format="%d")
+if st.button("Analyze Sentiment"):
+    if user_input.strip() == "":
+        st.warning("Please enter some text.")
+    else:
+        prediction = model.predict([user_input])[0]
+        if prediction == "positive":
+            st.success("Sentiment: Positive")
+        else:
+            st.error("Sentiment: Negative")
 
-if amount is not None:
-    st.write(f"The exercise input was {amount}.")
 
